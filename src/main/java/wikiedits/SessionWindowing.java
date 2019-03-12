@@ -64,7 +64,7 @@ public class SessionWindowing {
         // We create sessions for each id with max timeout of 3 time units
         DataStream<Tuple3<String, Long, Integer>> aggregated = source
                 .keyBy(0)
-                .window(EventTimeSessionWindows.withGap(Time.milliseconds(1L)))
+                .window(EventTimeSessionWindows.withGap(Time.milliseconds(5L)))
                 .sum(2);
 
         if (fileOutput) {
